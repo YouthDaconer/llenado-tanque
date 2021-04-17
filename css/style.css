@@ -1,0 +1,166 @@
+body{
+    margin:0;
+  }
+  
+  canvas{
+    position:absolute;
+    top:0;
+    left:0;
+    background:white;
+  }
+
+  #container{ 
+    overflow:hidden;
+    position: relative;
+    float:right;
+    width:230px;
+    height:calc(100vh);
+    background-color:white;
+    border-left:3px solid #FFA493;
+    border-left:3px solid #EEEEEE;
+  }
+
+  #rangeBox{
+    float:left;
+    position:relative;
+    width:25px;
+    height:100%;
+  }
+
+  #level{
+    position:relative;
+    margin:0px 1px;
+    top:calc(50% - 13px);
+    left:calc(60px - 50vh);
+    width:calc(100vh - 100px);
+    height:10px;
+    background-color:white;
+    -webkit-appearance: none;
+  }
+
+  #statBox{
+    position:relative;
+    float:left;
+    width:calc(100% - 25px);
+    height:100%;
+  }
+
+  .switch {
+      position: relative; width: 86px;margin:10px auto;
+      -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+  }
+
+  .switch-checkbox {
+      display: none;
+  }
+
+  .switch-label {
+     display: block; overflow: hidden; cursor: pointer;
+     border: 1px solid #999999; 
+    border-radius: 5px;
+  }
+
+  .switch-inner {
+      display: block; width: 200%; margin-left: -100%;
+      transition: margin 0.2s ease-in 0s;
+  }
+
+  .switch-inner:before, .switch-inner:after {
+      display: block; float: left; width: 50%; height: 24px; padding: 0; line-height: 24px;
+      font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif;
+      box-sizing: border-box;
+  }
+
+  .switch-inner:before {
+     content: "Filled";
+     padding-left: 20px;
+    background-color: #999999;
+    color: #FFFFFF;
+  }
+
+  .switch-inner:after {
+      content: "Hollow";
+      padding-right: 17px;
+      background-color: #EEEEEE; color: #999999;
+      text-align: right;
+  }
+
+  .switch-switch {
+      display: block; width: 15px; margin:-3.5px;
+      background: #FFFFFF;
+      position: absolute; top: 0; bottom: 0;
+      right: 73px;
+      border: 1px solid #999999; border-radius: 3px;
+      transition: all 0.2s ease-in 0s; 
+  }
+
+  .switch-checkbox:checked + .switch-label .switch-inner {
+    margin-left: 0;
+  }
+  .switch-checkbox:checked + .switch-label .switch-switch {
+      right: 0px; 
+  }
+
+  #blue_red + label > .switch-inner:before {
+    content:"Blue";
+    padding-right: 20px;
+     background-color: #34A7C1;
+    color: #FFFFFF;
+  }
+
+  #blue_red + label > .switch-inner:after {
+    content:"Red";
+    padding-right: 24px;
+    background-color:tomato;
+    color: #FFFFFF;
+  }
+
+  .tanque {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-size: 10px;
+    width: 100%;
+    height: 100%;
+    max-width: 311px;
+    max-height: 457px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.08) inset;
+    padding: 16px;
+  }
+  
+  .tanque--body {
+     position: relative;
+     -webkit-box-flex: 1;
+     -ms-flex: 1;
+     flex: 1;
+     border: 1px solid #f4f4f4;
+   }
+  
+   canvas {
+    width: 100%;
+    height: auto;
+  }
+
+  .wrapper {
+    position: relative;
+    width: 311px;
+    height: 457px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .tanque-canvas {
+    position: absolute;
+    left: 1.5em;
+    top: 9em;
+    width:282px;
+    height:320px;
+  }

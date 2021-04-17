@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tank Utilities</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="lib/fontawesome/css/all.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="bg-primary">
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <h2 class="text-white mt-1 mb-1">Tank Utilities</h2>
+            </div>
+        </div>
+    </header>
+    <br />
+    <br />
+    <main>
+
+        <!-- Page Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <h2>Tank</h2>
+                    <hr>
+                    <br />
+                    <div class="tanque">
+                        <div class="wrapper">
+                            <img id="tanque_image" src="images/tanque_normal.jpg" width="311" height="457"
+                                style="position: absolute;left: 0;top: 0;" />
+                            <canvas id="canvas" class="tanque-canvas" width="270" height="390"
+                                style="touch-action: none;"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 mb-2" style="padding-left: 3em;">
+                    <br />
+                    <br />
+                    <br />
+
+                    <div class="center">
+                        <label for="lblTankLevel">Level (Lts.)</label>
+                        <br />
+                        <div class="input-group col-xl-12 col-md-12 mb-12">
+                            <span class="input-group-btn">
+                                <button id="btnMinusTank" type="button" class="btn btn-danger btn-number"
+                                    data-type="minus" data-field="quant[2]">
+                                    <span class="fa fa-minus"></span>
+                                </button>
+                            </span>
+                            <input type="text" id="txtTankLevel" name="quant[2]" readonly
+                                class="form-control input-number" value="150" min="10" max="500">
+                            <span class="input-group-btn">
+                                <button id="btnPlusTank" type="button" class="btn btn-success btn-number"
+                                    data-type="plus" data-field="quant[2]">
+                                    <span class="fa fa-plus"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="center">
+                        <div class="form-group col-xl-12 col-md-12 mb-12">
+                            <label for="txtTankLevelManual">Set Level (Lts.)</label>
+                            <input type="text" class="form-control activeInput positive-integer" id="txtTankLevelManual"
+                                name="txtTankLevelManual" data-toggle="tooltip" data-placement="top"
+                                title="Set liquid level">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <br />
+                        <div class="col-6">
+                            <button id="btnSetTankLevel" class="btn btn-primary">Set</button>
+                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div class="col-12">
+                            <button id="btnEmptyTank" class="btn btn-danger">Empty Tank</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-1 mb-1">
+                </div>
+                <div class="col-md-6 mb-5">
+                    <h2>Setup</h2>
+                    <hr>
+                    <br />
+                    <div class="row justify-content-center align-items-center">
+                        <h4>Capacity</h4>
+                        <hr />
+                        <br />
+                        <section class="container-fluid">
+
+                            <div class="row justify-content-center align-items-center">
+                                <div class="form-group col-xl-6 col-md-6 mb-6 text-center well">
+                                    <label for="txtMaximumLevel">Maximum (Lts.)</label>
+                                    <input type="text" class="form-control activeInput positive-integer"
+                                        id="txtMaximumLevel" name="txtMaximumLevel" data-toggle="tooltip"
+                                        data-placement="top" title="Set maximum level" disabled>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="form-group col-xl-6 col-md-6 mb-6 text-center well">
+                                    <label for="txtMinimumLevel">Minimum (Lts.)</label>
+                                    <input type="text" class="form-control activeInput positive-integer"
+                                        id="txtMinimumLevel" name="txtMinimumLevel" data-toggle="tooltip"
+                                        data-placement="top" title="Set minimum level" disabled>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <br />
+                    <div class="row justify-content-center align-items-center">
+                        <h4>Alarms</h4>
+                        <hr />
+                        <br />
+                        <section class="container-fluid">
+
+                            <div class="row justify-content-center align-items-center">
+                                <div class="form-group col-xl-6 col-md-6 mb-6 text-center well">
+                                    <label for="txtAlarmHigh">High Level (Lts.)</label>
+                                    <input type="text" class="form-control activeInput positive-integer"
+                                        id="txtAlarmHigh" name="txtAlarmHigh" data-toggle="tooltip" data-placement="top"
+                                        title="Set alarm high level" disabled>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="form-group col-xl-6 col-md-6 mb-6 text-center well">
+                                    <label for="txtLowLevel">Low Level (Lts.)</label>
+                                    <input type="text" class="form-control activeInput positive-integer"
+                                        id="txtLowLevel" name="txtLowLevel" data-toggle="tooltip" data-placement="top"
+                                        title="Set alarm low level" disabled>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="row justify-content-center align-items-center">
+                        <section class="container-fluid">
+                            <div class="row">
+                                <div class="col-4 text-center well">
+                                    <button id="btnEditSetup" class="btn btn-warning">Edit</button>
+                                </div>
+                                <div class="col-4 text-center well">
+                                    <button id="btnCancelSetup" class="btn btn-danger" disabled>Cancel</button>
+                                </div>
+                                <div class="col-4 text-center well">
+                                    <button id="btnSaveSetup" class="btn btn-success" disabled>Save</button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Carlos Andrés Caicedo 2021</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script type="application/javascript" src="js/script.js"></script>
+    <script type="application/javascript" src="js/jquery.numeric.js"></script>
+</body>
+
+</html>
